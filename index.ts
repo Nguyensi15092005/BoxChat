@@ -6,6 +6,7 @@ import * as database from "./config/database";
 import flash from "express-flash";
 import cookieParser from "cookie-parser";
 import session from "express-session";
+import Routes from './routes/index.route';
 
 dotenv.config();
 
@@ -32,7 +33,7 @@ app.set("views", "./views");
 app.set("view engine", "pug");
 
 // Routes
-
+Routes(app);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

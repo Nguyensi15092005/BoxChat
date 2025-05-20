@@ -1,0 +1,54 @@
+extends ../../layout/default.pug
+include ../../mixins/alert.pug
+
+block main 
+
+  .container.mt-3 
+    .row.d-flex.justify-content-center
+      .col-5.d-flex.justify-content-center
+        form(
+          action="user/login" 
+          method="post" 
+          class="frm-user frm-register"
+        )
+          h2 Register
+          div(class="form-gruop")
+            label(for="fullName") Fullname 
+            input(
+              type="text" 
+              name="fullName" 
+              id="fullName"
+              class="form-control"
+              placeholder="Fullname enter"
+              required
+            )
+          div(class="form-gruop")
+            label(for="email") Email 
+            input(
+              type="text" 
+              name="email" 
+              id="name"
+              class="form-control"
+              placeholder="Email enter"
+              required
+            ) 
+          div(class="form-gruop")
+            label(for="password") Password 
+            input(
+              type="text" 
+              name="password" 
+              id="name"
+              class="form-control"
+              placeholder="Password enter" 
+              required
+            ) 
+
+          div(class="form-group")
+            button(type="submit") Đăng ký
+          
+
+      
+
+
+
+
