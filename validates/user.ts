@@ -36,3 +36,13 @@ export const loginValidate = async (req: Request, res: Response, next: NextFunct
     }
     next();
 }
+
+export const forgotValidate = async (req: Request, res: Response, next: NextFunction) => {
+    if(!req.body.email){
+        req.flash("error", "Bạn chưa nhập email!!!");
+        res.redirect("/user/login");
+        return;
+
+    }
+    next();
+}

@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import User from "../models/user.model";
 import md5 from "md5";
+import { randomNumber } from "../helper/generate";
+import ForgotPassword from "../models/forgot-password";
+import { sendMail } from "../helper/sendMail";
 
 // [GET] /user/login
 export const login = async (req: Request, res:Response)=>{
@@ -33,6 +36,107 @@ export const registerPost = async (req: Request, res:Response)=>{
 
         req.flash("success", "Chúc mừng bạn đã đăng ký thành công");
         res.redirect("/user/login");
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [POST] /user/login
+export const loginPost = async (req: Request, res:Response)=>{
+    try {
+        const email: string =req.body.email;
+        const password: string = req.body.password;
+        const user = await User.findOne({
+            email:email
+        });
+        if(!user){
+            req.flash("error", "Tài khoản không tồn tại");
+            res.redirect("/user/login");
+            return;
+        }
+        if(user.status !== "active"){
+            req.flash("error", "Tài khoản này đã bị khóa");
+            res.redirect("/user/login");
+            return;
+        }
+        if(user.password !== md5(password)){
+            req.flash("error", "Bạn đã nhập sai mật khẩu");
+            res.redirect("/user/login");
+            return;
+        }
+
+        res.cookie("tokenUser", user.tokenUser);
+        req.flash("success", "Chúc mừng bạn đã đăng nhập thành công");
+        res.redirect("/chat");
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [GET] /user/logout
+export const logout = async (req: Request, res:Response)=>{
+    try {
+        res.clearCookie("tokenUser");
+        req.flash("success", "Đăng xuất thanh công");
+        res.redirect("/user/login");
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [GET] /user/password/forgot
+export const forgotPassword = async (req: Request, res:Response)=>{
+    try {
+        res.render("pages/user/forgot", {
+            pageTitle: "Quên mật khẩu"
+        })
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [POST] /user/password/forgot
+export const forgotPasswordPost = async (req: Request, res:Response)=>{
+    try {
+        const email: string = req.body.email;
+
+        const user= await User.findOne({
+            email: email
+        });
+        if(!user){
+            req.flash("error", "Email này không tông tại");
+            res.redirect("/user/password/forgot");
+            return;
+        }
+
+        const otp: string = randomNumber(6);
+        interface ObjectFogot {
+            email: string,
+            otp: string,
+            expireAt: Date
+        }
+
+        const objectForgot: ObjectFogot ={
+            email: email,
+            otp: otp,
+            expireAt: new Date(Date.now())
+        }
+
+        const forgotPassword = new ForgotPassword(objectForgot);
+        await forgotPassword.save();
+
+        //Gửi mã OPT về email
+        const subject: string = "Mã OTP xác minh để lấy lại mật khẩu"
+        const html: string = `Mã OTP xác minh là <b>${otp}</b> thời hạn là 3 phút.`
+        sendMail(email, subject, html);
+
+
+        req.flash("success", "Mã OTP đã đc gửi vào email của bạn ");
+        res.redirect(`/user/password/otp?email=${email}`);
     } catch (error) {
         req.flash("error", "Lỗi");
         res.redirect("/");

@@ -3,5 +3,10 @@ header(class="header")
     .row 
       .col-12
         div(class="auth d-flex justify-content-center")
-          a(href="/user/register" class="btn-regisetr") Đăng ký 
-          a(href="/user/login" class="btn-login") Đăng nhập
+          if(user)
+            a(href="/user/logout" class="btn-logout") Đăng xuất
+          else 
+            div #{user}
+            a(href="/user/register" class="btn-regisetr") Đăng ký 
+            a(href="/user/login" class="btn-login") Đăng nhập
+          
