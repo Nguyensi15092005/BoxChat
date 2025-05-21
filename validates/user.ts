@@ -1,0 +1,38 @@
+import { NextFunction, Request, Response } from "express";
+
+export const registerValidate = async (req: Request, res: Response, next: NextFunction) => {
+    if(!req.body.fullName){
+        req.flash("error", "Bạn chưa nhập họ tên!!!");
+        res.redirect("/user/register");
+        return;
+    }
+    if(!req.body.email){
+        req.flash("error", "Bạn chưa nhập email!!!");
+        res.redirect("/user/register");
+        return;
+
+    }
+    if(!req.body.password){
+        req.flash("error", "Ban chưa nhập mật khẩu!!!");
+        res.redirect("/user/register");
+        return;
+
+    }
+    next();
+}
+
+export const loginValidate = async (req: Request, res: Response, next: NextFunction) => {
+    if(!req.body.email){
+        req.flash("error", "Bạn chưa nhập email!!!");
+        res.redirect("/user/login");
+        return;
+
+    }
+    if(!req.body.password){
+        req.flash("error", "Ban chưa nhập mật khẩu!!!");
+        res.redirect("/user/login");
+        return;
+
+    }
+    next();
+}

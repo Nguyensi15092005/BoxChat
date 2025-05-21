@@ -144,7 +144,7 @@ a:hover{
     font-weight: 300;
 }
 .frm-user button{
-    margin-top: 50px;
+    margin-top: 40px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -154,10 +154,61 @@ a:hover{
     border-radius: 5px;
     cursor: pointer;
 }
+.frm-user a{
+  color: #fff;
+  margin-top: 10px;
+}
 .frm-user.frm-register{
     padding: 20px 35px;
 }
 
-.frm-user.frm-register.
+
 
 /* end login */
+
+/* show-alert */
+.message-success{
+  padding: 15px 20px;
+  background-color: rgba(111, 223, 115, 0.13);
+  border: 3px solid #48ff00;
+  border-radius: 10px;
+  color: #fff;
+}
+.message-error{
+  padding: 15px 20px;
+  background-color: rgba(237, 11, 11, 0.306);
+  border: 3px solid #ff0000;
+  border-radius: 10px;
+  color: #fff;
+}
+[show-alert]{
+    position: fixed;
+    top:70px;
+    right: 15px;
+    z-index: 9999;
+}
+
+[show-alert].alert-hidden{
+    animation: AlertHidden 0.5s both;
+}
+
+@keyframes AlertHidden {
+    form{
+        right: 15px;
+    }
+    to{
+        right: -100%;
+        display: none;
+    }
+}
+
+[show-alert] [close-alert]{
+  font-size: 30px;
+  display: inline-block;
+  cursor:pointer;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+
+}
+/* end show-alert */
