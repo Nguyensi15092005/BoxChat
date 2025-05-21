@@ -142,3 +142,77 @@ export const forgotPasswordPost = async (req: Request, res:Response)=>{
         res.redirect("/");
     }
 }
+
+
+// [GET] /user/password/otp
+export const otp = async (req: Request, res:Response)=>{
+    try {
+        const email = req.query.email;
+        res.render("pages/user/otp", {
+            pageTitle: "Nhập mã OTP",
+            email: email
+        })
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [POST] /user/password/otp
+export const otpPost = async (req: Request, res:Response)=>{
+    try {
+        const email = req.query.email;
+        const otp = req.body.otp;
+        const forgot = await ForgotPassword.findOne({
+            email:email
+        });
+
+        if(forgot.otp !== otp){
+            req.flash("error", "Bạn đã nhập sai mã OTP");
+            res.redirect("/user/password/otp");
+            return;
+        }
+        
+        res.redirect(`/user/password/reset?email=${email}`);
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [GET] /user/password/reset
+export const reset = async (req: Request, res:Response)=>{
+    try {
+        res.render("pages/user/reset-password", {
+            pageTitle: "Đổi mật khẩu mới"
+        })
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}
+
+// [POST] /user/password/reset
+export const resetPost = async (req: Request, res:Response)=>{
+    try {
+        const email = req.query.email
+        const password: string = req.body.password;
+        const comfirmpassword: string = req.body.comfirmpassword;
+        if(password !== comfirmpassword){
+            req.flash("error", "Mật khẩu không khớp");
+            res.redirect("/user/password/reset");
+            return;
+        }
+
+        await User.updateOne({
+            email: email
+        },{
+            password: md5(password)
+        })
+        req.flash("success", "Chúc mừng bạn đã thay đổi mật khẩu thành công");
+        res.redirect("/user/login");
+    } catch (error) {
+        req.flash("error", "Lỗi");
+        res.redirect("/");
+    }
+}

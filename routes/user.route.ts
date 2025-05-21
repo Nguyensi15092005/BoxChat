@@ -30,6 +30,30 @@ routes.post(
     controller.forgotPasswordPost
 );
 
+routes.get("/password/otp", controller.otp);
+
+routes.get("/password/otp", controller.otp);
+
+routes.post(
+    "/password/otp", 
+    validate.otpValidate,
+    controller.otpPost
+);
+
+routes.get("/password/reset", controller.reset);
+
+routes.post(
+    "/password/reset", 
+    validate.resetValidate,
+    controller.resetPost
+);
+
+
+
+
+
+
+
 
 
 

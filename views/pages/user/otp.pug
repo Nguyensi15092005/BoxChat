@@ -14,7 +14,7 @@ block main
           method="post" 
           class="frm-user"
         )
-          h2 Login
+          h2 Nhập OTP để xác thực 
           div(class="form-gruop")
             label(for="email") Email 
             input(
@@ -22,24 +22,22 @@ block main
               name="email" 
               id="name"
               class="form-control"
-              placeholder="Email enter"
-              required
+              value=email 
+              readonly
             ) 
 
           div(class="form-gruop")
-            label(for="password") Password 
+            label(for="otp") OTP
             input(
-              type="password" 
-              name="password" 
-              id="name"
+              type="text" 
+              name="otp" 
+              id="otp"
               class="form-control"
-              placeholder="Password enter" 
-              required
-            ) 
-          a(href="/user/password/forgot") Quên mật khẩu 
+              placeholder="otp enter"
+            )
 
           div(class="form-group")
-            button(type="submit") Đăng nhập
+            button(type="submit") Xác thực
           
 
       

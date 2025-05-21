@@ -40,9 +40,32 @@ export const loginValidate = async (req: Request, res: Response, next: NextFunct
 export const forgotValidate = async (req: Request, res: Response, next: NextFunction) => {
     if(!req.body.email){
         req.flash("error", "Bạn chưa nhập email!!!");
-        res.redirect("/user/login");
+        res.redirect("/user/password/forgot");
         return;
 
+    }
+    next();
+}
+
+export const otpValidate = async (req: Request, res: Response, next: NextFunction) => {
+    if(!req.body.otp){
+        req.flash("error", "Bạn chưa nhập ma OTP!!!");
+        res.redirect("/user/password/otp");
+        return;
+    }
+    next();
+}
+
+export const resetValidate = async (req: Request, res: Response, next: NextFunction) => {
+    if(!req.body.password){
+        req.flash("error", "Bạn chưa nhập mật khẩu!!!");
+        res.redirect("/user/password/reset");
+        return;
+    }
+    if(!req.body.comfirmpassword){
+        req.flash("error", "Bạn chưa nhập nhập lại mật khẩu!!!");
+        res.redirect("/user/password/reset");
+        return;
     }
     next();
 }
