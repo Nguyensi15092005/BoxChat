@@ -1,0 +1,40 @@
+extends ../../layout/default.pug
+include ../../mixins/alert.pug
+
+block main 
+  +alert-success(3000)
+  +alert-error(3000)
+
+  .container 
+    .row.d-flex.justify-content-center 
+      .col-7 
+        .box-socket
+          .box-head
+            //- div(class="user-image")
+            //-   img(src="https://png.pngtree.com/png-vector/20240319/ourmid/pngtree-cute-chibi-baby-boy-in-an-animal-suit-in-relief-happy-png-image_12012250.png", alt="")
+            div(class="box-btn-list")
+              include ../../layout/list-btn-user.pug
+
+          .box-body 
+            .row(data-users-not-friend=user.id) 
+              each user in users
+                .col-6(user-id=user.id)
+                  .box-item 
+                    div(class="inner-avt")
+                      img(
+                        src=(user.avatar ? user.avatar : "https://tamsuphunu.vn/wp-content/uploads/2025/03/avatar-fb-14.jpg")
+                        alt=""
+                      )
+                    div(class="inner-info")
+                      div(class="inner-name") #{user.fullName}
+                      div(class="inner-btn")
+                        button(
+                          class="btn-info"
+                          btn-add-friend=user.id
+                        ) Kêt bạn 
+                        button(
+                          class="btn-info btn-red"
+                          btn-cancel-friend=user.id
+                        ) Hủy kết bạn
+block script 
+  script(src="/js/box-socket.js") 

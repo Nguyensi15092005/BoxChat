@@ -1,0 +1,32 @@
+ 
+a(
+    href="/box-chat/not-friends"
+    class="list-btn-user"    
+) Danh sách người dùng
+a(
+    href="/box-chat/friends"
+    class="list-btn-user btn-friends"    
+) 
+    |   Danh sách bạn bè 
+    span(
+        class="badge-length"
+        badge-users-friend=user.id
+    ) #{user.friendList.length}
+a(
+    href="/box-chat/request"
+    class="list-btn-user btn-request"    
+) 
+    |   Lời mời đã gửi 
+    span(
+        class="badge-length"
+        badge-users-request=user.id
+    ) #{user.requestFriends.length}
+a(
+    href="/box-chat/accepts"
+    class="list-btn-user btn-accept"    
+) 
+    |   Lời mời kết bạn 
+    span(
+        class="badge-length"
+        badge-users-accept=user.id
+    ) #{user.acceptFriends.length}

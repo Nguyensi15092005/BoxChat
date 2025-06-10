@@ -1,0 +1,47 @@
+extends ../../layout/default.pug
+include ../../mixins/alert.pug
+
+
+block main 
+
+  +alert-success(3000)
+  +alert-error(3000)
+  .container.mt-3 
+    .row.d-flex.justify-content-center
+      .col-5.d-flex.justify-content-center
+        form(
+          action="" 
+          method="post" 
+          class="frm-user"
+        )
+          h2 Nhập OTP để xác thực 
+          div(class="form-gruop")
+            label(for="email") Email 
+            input(
+              type="text" 
+              name="email" 
+              id="name"
+              class="form-control"
+              value=email 
+              readonly
+            ) 
+
+          div(class="form-gruop")
+            label(for="otp") OTP
+            input(
+              type="text" 
+              name="otp" 
+              id="otp"
+              class="form-control"
+              placeholder="otp enter"
+            )
+
+          div(class="form-group")
+            button(type="submit") Xác thực
+          
+
+      
+
+
+
+
