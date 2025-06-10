@@ -11,9 +11,10 @@ block main
           action="/user/register" 
           method="post" 
           class="frm-user frm-register"
+          enctype="multipart/form-data"
         )
           h2 Register
-          div(class="form-gruop")
+          div(class="form-group mb-1")
             label(for="fullName") Fullname 
             input(
               type="text" 
@@ -22,7 +23,7 @@ block main
               class="form-control"
               placeholder="Fullname enter"
             )
-          div(class="form-gruop")
+          div(class="form-group mb-1")
             label(for="email") Email 
             input(
               type="text" 
@@ -31,7 +32,7 @@ block main
               class="form-control"
               placeholder="Email enter"
             ) 
-          div(class="form-gruop")
+          div(class="form-group mb-1")
             label(for="password") Password 
             input(
               type="password" 
@@ -40,6 +41,22 @@ block main
               class="form-control"
               placeholder="Password enter" 
             ) 
+
+          div(class="form-group mb-1" upload-image)
+            label(for="avatar") Avatar
+            input(
+              type="file" 
+              name="avatar" 
+              id="avatar"
+              class="form-control-file"
+              accept="image/*"
+              upload-image-input
+            )
+            img(
+              src=""
+              class="image-preview"
+              upload-image-preview
+            )
 
           div(class="form-group")
             button(type="submit") Đăng ký

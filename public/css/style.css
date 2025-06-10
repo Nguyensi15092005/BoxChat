@@ -18,9 +18,9 @@ a:hover{
     text-decoration: none;
 }
 /* header */
-.header .auth a{
+.header .auth .btn-account{
     margin: 10px 20px ;
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 20px;
     font-weight: 500;
     width: 150px;
@@ -42,7 +42,7 @@ a:hover{
     
 }
 
-.header .auth a:before{
+.header .auth .btn-account:before{
   content: "";
   background: linear-gradient(
     45deg,
@@ -82,7 +82,7 @@ a:hover{
   }
 }
 
-.header .auth a:after {
+.header .auth .btn-account:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -92,6 +92,38 @@ a:hover{
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.header .auth .btn-account.btn-logout{
+  position: relative;
+  right: -20px;
+  width: 120px;
+
+}
+.header .auth .user-image{
+  width: 250px;
+  height: 80px;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.header .auth .user-image .avatar-user{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+.header .auth .user-image img{
+  width: 100%;
+  object-fit: cover;
+}
+.header .auth .user-image .inner-fullname{
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
 }
 /* End header */
 
@@ -128,9 +160,16 @@ a:hover{
 .frm-user label{
     color: #fff;
     display: block;
-    margin-top: 20px;
+    margin-top: 25px;
     font-size: 18px;
     font-weight: 500;
+}
+
+.frm-user.frm-register label{
+    margin-top: 10px;
+}
+.frm-user.frm-register button{
+  margin-top: 20px;
 }
 .frm-user input{
     display: block;
@@ -213,3 +252,76 @@ a:hover{
 
 }
 /* end show-alert */
+
+
+
+/* bnt-message */
+.btn-message button{
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  appearance: none;
+  border: 0;
+  background: 0;
+  position: relative;
+  color: white;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-family: inherit;
+  font-weight: 500;
+}
+.btn-message button:after{
+  content: '';
+  position: absolute;
+  inset:0;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,1);
+  border-radius: inherit;
+  mix-blend-mode: overlay;
+}
+.btn-message button iframe{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1) rotate(15deg);
+  opacity: 0.5;
+  filter: blur(5px);
+  transition: all 0.5s ease-in-out;
+}
+.btn-message button span{
+  position: relative;
+  z-index: 1;
+  opacity: 0.75;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+.btn-message button:hover iframe{
+  transform: translate(-50%,-50%) scale(0.5);
+  opacity: 1;
+  filter: blur(0);
+}
+.btn-message button:hover span{
+  opacity: 1;
+}
+.btn-message {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin-bottom: -10px;
+  margin-right: 10px;
+}
+/* end bnt-message */
+
+/* Image Preview */
+.image-preview{
+  position: absolute;
+  left: 109px;
+  bottom: 95px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+.image-preview[src=""]{
+  display: none;
+}
+/* End Image Preview */

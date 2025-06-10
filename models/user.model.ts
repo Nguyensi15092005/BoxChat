@@ -7,10 +7,7 @@ const userSchema = new mongoose.Schema({
     email: String,
     phone: String,
     password: String,
-    tokenUser: {
-        type: String,
-        default: randomString(20)
-    },
+    tokenUser: String,
     avatar: String,
     status: {
         type: String,
@@ -29,6 +26,13 @@ const userSchema = new mongoose.Schema({
     deletedBy: {
         account_id: String,
         deletedAt: Date
+    },
+    acceptFriends: Array,
+    requestFriends: Array,
+    friendList: Array,
+    statusOnline: {
+        type: String,
+        default: "offline"
     },
 },
     {

@@ -16,6 +16,7 @@ export const authMiddleware = async (req: Request, res: Response, next: NextFunc
             res.redirect("/user/login");
             return;
         }
+        res.locals.user = user;
         next();
     }
     

@@ -1,7 +1,10 @@
 import { Router } from "express";
+import multer from 'multer';
+const upload = multer();
 
 import * as validate from "../validates/user";
 import * as controller from "../controller/user.controller";
+import * as middleware from "../middlewares/uploadClou.middleware";
 const routes: Router= Router();
 
 routes.get("/login", controller.login);
@@ -16,6 +19,8 @@ routes.get("/register", controller.register);
 
 routes.post(
     "/register", 
+    upload.single("avatar"),
+    middleware.uploadSingle,
     validate.registerValidate,
     controller.registerPost
 );

@@ -1,0 +1,582 @@
+
+.box-socket{
+    background-color: #cbd9e662;
+    border: 1px solid #ddd;
+    border-radius: 15px 15px 0 15px;
+    flex-direction: column;
+    height: 620px;
+}
+.box-socket .box-head{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 5px;
+    border-bottom: 2px solid #ddd;
+}
+.box-socket .box-head .user-image{
+    width: 60px;
+    text-align: center;
+}
+.box-socket .box-head .user-image img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.box-socket .box-head .box-btn-list{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.box-socket .box-head .box-btn-list a{
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #f4f4f5;
+    cursor: pointer;
+    background-color: #b56b48bb;
+    box-shadow: rgba(59, 59, 60, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#e9bf9a 0 -3px 0 inset;
+}
+.box-socket .box-head .box-btn-list a .badge-length{
+    background-color: #f4f4f5;
+    color:#73391ebb;
+    font-size: 13px;
+    padding: 0 5px;
+    border-radius: 50%;
+}
+
+
+
+.box-socket .box-body{
+    height: 547px;
+    padding: 20px;
+    overflow-y: auto;
+}
+.box-socket .box-body .box-item{
+    display: flex;
+    align-items: center;
+    border: 2px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.box-socket .box-body .box-item .inner-avt{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.box-socket .box-body .box-item .inner-avt img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit:cover;
+}
+.box-socket .box-body .box-item .inner-info .inner-name{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;  
+}
+.box-socket .box-body .box-item .inner-info .inner-btn .btn-info{
+    font-size: 15px;
+    background-color: #0d633798;
+    border: 2px solid #72FF6C;
+    color: #72FF6C;
+    padding: 5px 8px;
+    border-radius: 10px;
+}
+.box-socket .box-body .box-item .inner-info .inner-btn .btn-info.btn-red{
+    background-color: #8a212198;
+    border: 2px solid #fa2213;
+    color: #fb2323;
+    margin-left: 5px;
+    padding: 3px 8px;
+}
+.box-socket .box-body .box-item .inner-status{
+    font-size: 12px;
+    /* opacity: 0; */
+    position: relative;
+}
+.box-socket .box-body .box-item .inner-status i{
+    position: absolute;
+    top: -34px;
+    right: 0px;
+    color:#15f324;
+}
+
+/* box userSocket */
+.box-item{
+    display: flex;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20x;
+    align-items: center;
+}
+.box-item .inner-avt{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+}
+.box-item .inner-avt img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.box-item .inner-info{
+    flex: 1;
+}
+.box-item .inner-info .inner-name{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+.box-item [btn-cancel-friend]{
+    display: none;
+}
+.box-item.add [btn-add-friend]{
+    display: none;
+}
+.box-item.add [btn-cancel-friend]{
+    display: inline-block;
+}
+
+.box-item [btn-delete-friend]{
+    display: none;
+}
+.box-item.refuse [btn-accept-friend]{
+    display: none;
+}
+.box-item.refuse [btn-refuse-friend]{
+    display: none;
+}
+.box-item.refuse [btn-delete-friend]{
+    display: inline-block;
+}
+
+.box-item [btn-accepted-friend]{
+    display: none;
+}
+.box-item.accepted [btn-accept-friend]{
+    display: none;
+}
+.box-item.accepted [btn-refuse-friend]{
+    display: none;
+}
+.box-item.accepted [btn-accepted-friend]{
+    display: inline-block;
+}
+
+.box-item .inner-status{
+    font-size: 12px;
+    color:#15f324;
+    opacity: 0;
+    position: relative;
+}
+.box-item .inner-status i{
+    position: absolute;
+    top: -34px;
+    right: 0;
+}
+.box-item .inner-status[status="online"]{
+    opacity: 1;
+}
+/* End box userSocket */
+
+
+
+/* chat */
+.box-socket .box-chat{
+    padding: 10px 15px;
+    width: 100%;
+    flex:1;
+}
+.box-socket .box-chat .chat{
+    display: flex;
+    flex-direction: column;
+    height: 100%;  
+}
+.box-socket .box-chat .chat .inner-body{
+    flex: 1;
+}
+.box-socket .box-chat .chat .inner-header{
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+    margin-bottom: 5px;
+}
+
+.box-socket .box-chat .chat .inner-header .inner-avt{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 6px;
+}
+.box-socket .box-chat .chat .inner-header .inner-avt img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box-socket .box-chat .chat .inner-header .inner-info .inner-name{
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+}
+
+.box-socket .box-chat .chat .inner-header .inner-on{
+    font-size: 14px;
+    color: #15f324;
+}
+.box-socket .box-chat .chat .inner-header .inner-off{
+    font-size: 14px;
+    color: #f31515;
+}
+
+
+.box-socket .box-chat .chat .inner-body{
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.box-socket .box-chat .chat .inner-body .inner-outgoing .inner-content{
+    padding: 6px 12px;
+    background-color: #ce8b6b76;
+    border: 1px solid #d3571d;
+    color: #fff;
+    text-wrap: balance;
+    font-size: 15px;
+    border-radius: 17px;
+    width: 40%;
+    margin-bottom: 5px;
+    margin-left: auto;
+}
+
+.box-socket .box-chat .chat .inner-body .inner-incoming{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin-right: auto;
+    text-wrap: balance;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.box-socket .box-chat .chat .inner-body .inner-incoming .avt-friend img{ 
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 4px;
+}
+
+.box-socket .box-chat .chat .inner-body .inner-incoming .inner-content{
+    background-color: #dddddd54;
+    padding: 6px 12px;
+    border-radius: 15px;
+    flex: 1;
+    font-size: 15px;
+    color: #fff;
+}
+
+
+.box-socket .box-chat .chat .inner-body .inner-incoming .inner-images{
+    width: 100%;
+    margin-right: auto;
+    text-align: left;
+}
+.box-socket .box-chat .chat .inner-body .inner-outgoing .inner-images{
+    width: 40%;
+    margin-left: auto;
+    text-align: right;
+}
+.box-socket .box-chat .chat .inner-body .inner-images img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    padding: 6px;
+    background-color: #efefef;
+    margin: 0 5px 5px 0;
+    border-radius: 5px;
+}
+.box-socket .box-chat .chat .inner-foot {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top:500px;
+    right: 0px;
+    left: 0;
+    z-index: 3;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.box-socket .box-chat .chat .inner-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* khoảng cách giữa input và button */
+}
+
+.box-socket .box-chat .chat .inner-form input {
+    flex: 1;
+    height: 32px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #cbd9e662;
+    border-radius: 15px;
+    padding: 0 10px;
+    outline: none;
+}
+.box-socket .box-chat .chat .inner-form label{
+    margin: 0;
+    display: flex;
+    align-items:center ;
+}
+.box-socket .box-chat .chat .inner-form button {
+    border-radius: 50px;
+    border: 1px solid #fff;
+    background: #d35c25;
+    color: #fff;
+    width: 33px;
+    height: 33px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.box-socket .box-chat .chat .inner-form .button-icon{
+    font-size: 20px;
+    color: #dddddd9f;
+    cursor: pointer;
+}
+.box-socket .box-chat .chat .inner-form .button-image{
+    font-size: 20px;
+    color: #dddddd9f;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Upload-image */
+.chat .inner-upload-image .inner-image{
+    position: absolute;
+    top:410px;
+    z-index: 5;
+    width: 93%;
+    display: none;
+    /* background-color: #dededebd; */
+    flex-wrap: wrap;
+    padding: 10px;
+    height: auto;
+}
+.chat .inner-upload-image .image-wrapper{
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    position: relative;
+    background-color: #efefef;
+    /* box-shadow: 0px 0px 3px 3px #afafaf; */
+    margin-right: 6px;
+}
+.chat .inner-upload-image .image-wrapper .image{
+    width: 100%;
+    height: auto;
+}
+.chat .inner-upload-image .image-wrapper .close-image{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+    color: #d3571d;
+
+}
+#upload-image{
+    display: none;
+}
+/* End Upload-image */
+
+/* end chat */
+
+/* Emoji icon */
+.tooltip{
+    visibility: hidden;
+}
+.tooltip.shown{
+    visibility: visible;
+    opacity: 1;
+}
+
+emoji-picker{
+    position: relative;
+    top:-16px;
+    --background: #ffffffc8;
+    left: -252px;
+    width: 590px;
+    height: 260px;
+}
+/* end Emoji icon */
+
+
+/* Typing */
+.box-typing{
+    position: relative;
+}
+.box-typing .inner-name {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+.box-typing .inner-dots{
+    position: relative;
+    height: 25px;
+    width: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef76;
+    border-radius: 45px;
+    margin-top: 3px;
+}
+.box-typing .inner-dots span{
+    animation: blink 1.5s infinite;
+    height: 8px;
+    width: 8px;
+    background-color: #d3571dd0;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 3px;
+}
+.box-typing .inner-dots span:nth-child(2){
+    animation-delay: 0.2s;
+}
+.box-typing .inner-dots span:nth-child(3){
+    animation-delay: 0.4s;
+}
+@keyframes blink{
+    0%{
+        opacity: 0.1;
+    }
+    20%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+/* end Typing */
+
+/* room-chat */
+.box-socket .box-head .btn-creae-room{
+    padding: 5px 5px;
+    margin-left: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #f4f4f5;
+    cursor: pointer;
+    background-color: #b56b48bb;
+    box-shadow: rgba(59, 59, 60, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#e9bf9a 0 -3px 0 inset;
+}
+
+.box-room{
+    display: flex;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20x;
+    align-items: center;
+}
+.box-room .inner-avt{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+}
+.box-room .inner-avt img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.box-room .inner-info{
+    flex: 1;
+}
+.box-room .inner-info .inner-name{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #fff
+}
+.box-room .inner-info .inner-btn .message-room{
+    font-size: 15px;
+    background-color: #0d633798;
+    border: 2px solid #72FF6C;
+    color: #72FF6C;
+    padding: 5px 8px;
+    border-radius: 10px;
+}
+/* end room-chat */
+
+/* create box-room */
+.box-socket .box-room-create{
+    padding: 30px 50px;
+}
+.box-socket .box-room-create h2{
+    color: #fff;
+    text-align: center;
+}
+.box-socket .box-room-create label{
+    margin-bottom: 4px;
+    color: #fff;
+}
+.box-socket .box-room-create .input-avatar{
+    background-color: #abb3bb62; 
+    cursor: pointer;
+    color: #fff;
+}
+.box-socket .box-room-create .title{
+    background-color: #abb3bb62; 
+    border: 1px solid #ddd;
+    color:#fff; 
+    width: 50%;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.box-socket .box-room-create .input-checkbox{
+    background-color: #abb3bb62; 
+    border: 1px solid #ddd; 
+    margin-right: 5px ;
+}
+.box-socket .box-room-create .btn-tao{
+    padding: 5px 5px;
+    border: none;
+    width: 100px;
+    margin-left: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #f4f4f5;
+    cursor: pointer;
+    background-color: #b56b48bb;
+    box-shadow: rgba(59, 59, 60, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#e9bf9a 0 -3px 0 inset;
+}
+
+
+
+/* end create box-room */
+
+
+
+
+
