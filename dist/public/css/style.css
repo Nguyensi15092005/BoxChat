@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", sans-serif;
+}
+body{
+    background-image: url("/image/bgr.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ul{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+a:hover{
+    text-decoration: none;
+}
+/* header */
+.header .auth .btn-account{
+    margin: 10px 20px ;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 25px;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    z-index: 0;
+    /* color: rgb(71, 222, 71); */
+    /* background-color: #147133; */
+    /* box-shadow: rgba(44, 187, 99, 0.306) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px; */
+    
+}
+
+.header .auth .btn-account:before{
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.header .auth .btn-account:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.header .auth .btn-account.btn-logout{
+  position: relative;
+  right: -20px;
+  width: 120px;
+
+}
+.header .auth .user-image{
+  width: 250px;
+  height: 80px;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.header .auth .user-image .avatar-user{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+.header .auth .user-image img{
+  width: 100%;
+  object-fit: cover;
+}
+.header .auth .user-image .inner-fullname{
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+/* End header */
+
+/* dashboard */
+.dashboard h2{
+    font-family: "Lobster", sans-serif; 
+    font-weight: 500;
+    color: #00ffd5;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 70px;
+}
+/* End dashboard */
+
+/* login */
+.frm-user{
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+
+}
+.frm-user h2{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+.frm-user label{
+    color: #fff;
+    display: block;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.frm-user.frm-register label{
+    margin-top: 10px;
+}
+.frm-user.frm-register button{
+  margin-top: 20px;
+}
+.frm-user input{
+    display: block;
+    height: 45px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #ddd;
+}
+.frm-user button{
+    margin-top: 40px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.frm-user a{
+  color: #fff;
+  margin-top: 10px;
+}
+.frm-user.frm-register{
+    padding: 20px 35px;
+}
+
+
+
+/* end login */
+
+/* show-alert */
+.message-success{
+  padding: 15px 20px;
+  background-color: rgba(111, 223, 115, 0.13);
+  border: 3px solid #48ff00;
+  border-radius: 10px;
+  color: #fff;
+}
+.message-error{
+  padding: 15px 20px;
+  background-color: rgba(237, 11, 11, 0.306);
+  border: 3px solid #ff0000;
+  border-radius: 10px;
+  color: #fff;
+}
+[show-alert]{
+    position: fixed;
+    top:70px;
+    right: 15px;
+    z-index: 9999;
+}
+
+[show-alert].alert-hidden{
+    animation: AlertHidden 0.5s both;
+}
+
+@keyframes AlertHidden {
+    form{
+        right: 15px;
+    }
+    to{
+        right: -100%;
+        display: none;
+    }
+}
+
+[show-alert] [close-alert]{
+  font-size: 30px;
+  display: inline-block;
+  cursor:pointer;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+
+}
+/* end show-alert */
+
+
+
+/* bnt-message */
+.btn-message button{
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  appearance: none;
+  border: 0;
+  background: 0;
+  position: relative;
+  color: white;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  font-family: inherit;
+  font-weight: 500;
+}
+.btn-message button:after{
+  content: '';
+  position: absolute;
+  inset:0;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,1);
+  border-radius: inherit;
+  mix-blend-mode: overlay;
+}
+.btn-message button iframe{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1) rotate(15deg);
+  opacity: 0.5;
+  filter: blur(5px);
+  transition: all 0.5s ease-in-out;
+}
+.btn-message button span{
+  position: relative;
+  z-index: 1;
+  opacity: 0.75;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+.btn-message button:hover iframe{
+  transform: translate(-50%,-50%) scale(0.5);
+  opacity: 1;
+  filter: blur(0);
+}
+.btn-message button:hover span{
+  opacity: 1;
+}
+.btn-message {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin-bottom: -10px;
+  margin-right: 10px;
+}
+/* end bnt-message */
+
+/* Image Preview */
+.image-preview{
+  position: absolute;
+  left: 109px;
+  bottom: 95px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+.image-preview[src=""]{
+  display: none;
+}
+/* End Image Preview */
